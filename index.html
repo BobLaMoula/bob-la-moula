@@ -71,12 +71,11 @@ footer{text-align:center;color:#8e8778;font-size:12px;padding:20px}
 <footer>© Bob La Moula 24/24 · Tous droits réservés</footer>
 
 <script>
-const products = [
-  {name:"Article 1",price:"Prix à définir",photo:""},
-  {name:"Article 2",price:"Prix à définir",photo:""},
-  {name:"Article 3",price:"Prix à définir",photo:""},
-  {name:"Article 4",price:"Prix à définir",photo:""}
-];
+const products = Array.from({ length: 55 }, (_, i) => ({
+  name: `Article ${i + 1}`,
+  price: "Prix à définir",
+  photo: ""
+}));
 
 const container = document.getElementById("products");
 
