@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bob La Moula</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#080808;color:#f5d778;
+ font-family:Arial,sans-serif;text-align:center;
+ min-height:100vh;padding:28px 18px;
+}
+.logo{font-size:48px;font-weight:900;letter-spacing:2px;
+ color:#f5d778;text-shadow:0 0 18px #8c5a00}
+.sub{font-size:24px;font-weight:bold;letter-spacing:4px;
+ color:#fff0b0;margin:0 0 30px}
+.crown{font-size:52px;margin-top:18px}
+.line{height:1px;background:linear-gradient(90deg,transparent,#d9a52e,transparent);margin:20px 0}
+button{
+ display:block;width:100%;padding:18px;margin:14px 0;
+ border:1px solid #d6ad49;border-radius:12px;
+ background:linear-gradient(135deg,#272019,#090909);
+ color:#ffdc79;font-weight:bold;font-size:16px;
+ letter-spacing:1px;
+}
+button:active{background:#493713}
+.panel{display:none;text-align:left;color:#f5e7bd;
+ background:#17130d;border:1px solid #8e6a25;
+ border-radius:12px;padding:18px;margin-top:20px;line-height:1.6}
+.small{color:#aaa;font-size:12px;margin-top:35px}
+</style>
+</head>
+<body>
+<div class="crown">♛</div>
+<div class="logo">BOB</div>
+<div class="sub">LA MOULA</div>
+<div class="line"></div>
+
+<button onclick="show('menu')">♜ &nbsp; MENU</button>
+<button onclick="show('infos')">♛ &nbsp; INFORMATIONS</button>
+<button onclick="show('avis')">✦ &nbsp; RETOURS CLIENTS</button>
+
+<div id="menu" class="panel">
+<h3>MENU OFFICIEL</h3>
+<p>Découvre ici notre menu.</p>
+<p>Les informations seront ajoutées prochainement.</p>
+</div>
+
+<div id="infos" class="panel">
+<h3>INFORMATIONS</h3>
+<p>Bienvenue dans l'espace officiel Bob La Moula.</p>
+<p>Les informations importantes seront publiées ici.</p>
+</div>
+
+<div id="avis" class="panel">
+<h3>RETOURS CLIENTS</h3>
+<p>Retrouve ici les retours de la communauté.</p>
+<p>Les avis seront ajoutés prochainement.</p>
+</div>
+
+<div class="small">BOB LA MOULA · ESPACE OFFICIEL</div>
+
+<script>
+function show(id){
+ document.querySelectorAll('.panel').forEach(p=>p.style.display='none');
+ document.getElementById(id).style.display='block';
+ document.getElementById(id).scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
