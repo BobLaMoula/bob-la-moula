@@ -1,125 +1,350 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bob La Moula 24/24</title>
+<meta name="theme-color" content="#090909">
+<title>BOB LA MOULA 24/24</title>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#080808;color:#f7f1df;font-family:Arial,sans-serif}
-header{text-align:center;padding:28px 14px 18px;border-bottom:1px solid #99752d}
-.crown{font-size:38px}
-h1{color:#f5ce70;font-size:32px;margin:8px 0;text-shadow:0 0 14px #8a641f}
-.subtitle{letter-spacing:4px;color:#d4b36a;font-size:13px}
-nav{display:flex;gap:8px;padding:16px 10px;justify-content:center;flex-wrap:wrap}
-nav button,.action{background:#17140e;color:#f5ce70;border:1px solid #bc913a;border-radius:9px;padding:12px 14px;font-weight:bold;cursor:pointer}
-main{max-width:760px;margin:auto;padding:8px 14px 35px}
-h2{color:#f5ce70;text-align:center;margin:22px 0}
-.intro{text-align:center;color:#c7c0af;line-height:1.5}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.card{background:#111;border:1px solid #876629;border-radius:12px;padding:10px;overflow:hidden}
-.photo{height:130px;border-radius:8px;background:#201c14;display:flex;align-items:center;justify-content:center;color:#d6b76e;text-align:center;font-size:14px}
-.photo img{width:100%;height:100%;object-fit:cover;border-radius:8px}
-.card h3{font-size:16px;margin:12px 0 6px}
-.price{color:#f5ce70;font-weight:bold;margin:8px 0 12px}
-.action{width:100%;padding:10px 5px}
-.panel{display:none}
-.panel.active{display:block}
-.info{border:1px solid #765b2c;border-radius:10px;padding:16px;line-height:1.6;background:#111}
-footer{text-align:center;color:#8e8778;font-size:12px;padding:20px}
-@media(max-width:360px){h1{font-size:27px}.grid{gap:8px}.photo{height:105px}}
+:root {
+  --or: #f5c542;
+  --fond: #090909;
+  --carte: #171717;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--or);
+  font-family: Arial, sans-serif;
+}
+header {
+  text-align: center;
+  padding: 28px 12px;
+  border-bottom: 1px solid #8d6c1e;
+  background: #111;
+}
+header h1 {
+  margin: 0;
+  font-size: clamp(25px, 6vw, 38px);
+}
+header p { color: #eee; }
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 8px;
+}
+button {
+  cursor: pointer;
+  background: #171717;
+  color: var(--or);
+  border: 1px solid var(--or);
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-weight: bold;
+}
+button:hover { background: #30250b; }
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px;
+}
+h2 { font-size: 23px; }
+#products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.product {
+  min-width: 0;
+  padding: 10px;
+  background: var(--carte);
+  border: 1px solid #8d6c1e;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.main-photo {
+  height: 180px;
+  width: 100%;
+  background: #080808;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.main-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.no-photo {
+  color: #aaa;
+  text-align: center;
+  font-size: 13px;
+  padding: 10px;
+}
+.thumbnails {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 8px 0;
+}
+.thumbnails img {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  object-fit: cover;
+  border: 1px solid var(--or);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.product h3 {
+  color: white;
+  font-size: 17px;
+  overflow-wrap: anywhere;
+}
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 8px 0;
+}
+.description {
+  color: #ddd;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.panel {
+  display: none;
+  color: #eee;
+  line-height: 1.6;
+  padding: 10px;
+}
+footer {
+  text-align: center;
+  color: #aaa;
+  padding: 25px 10px;
+  font-size: 12px;
+}
+@media (min-width: 700px) {
+  #products { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1000px) {
+  #products { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 360px) {
+  #products { gap: 7px; }
+  .product { padding: 7px; }
+  .main-photo { height: 140px; }
+}
 </style>
 </head>
+
 <body>
 <header>
-  <div class="crown">👑</div>
-  <h1>BOB LA MOULA</h1>
-  <div class="subtitle">24/24</div>
+  <h1>👑 BOB LA MOULA 24/24</h1>
+  <p>Bienvenue dans notre catalogue</p>
 </header>
 
 <nav>
-  <button onclick="showPanel('menu')">MENU</button>
-  <button onclick="showPanel('infos')">INFORMATIONS</button>
-  <button onclick="showPanel('avis')">RETOURS CLIENTS</button>
+  <button type="button" onclick="showSection('catalogue')">MENU</button>
+  <button type="button" onclick="showSection('infos')">INFORMATIONS</button>
+  <button type="button" onclick="showSection('avis')">RETOURS CLIENTS</button>
 </nav>
 
 <main>
-<section id="menu" class="panel active">
-  <h2>✦ NOTRE MENU ✦</h2>
-  <p class="intro">Découvre les articles Bob La Moula.<br>Les références et les prix seront bientôt disponibles.</p>
-  <div class="grid" id="products"></div>
-</section>
+  <section id="catalogue">
+    <h2>🛍️ Nos produits</h2>
+    <div id="products"></div>
+  </section>
 
-<section id="infos" class="panel">
-  <h2>INFORMATIONS</h2>
-  <div class="info">
-    <p><strong>BOB LA MOULA 24/24</strong></p>
-    <p>Bienvenue sur notre mini-application officielle.</p>
-    <p>Les informations sur les articles, les disponibilités et les modalités de commande seront ajoutées prochainement.</p>
-  </div>
-</section>
+  <section id="infos" class="panel">
+    <h2>ℹ️ Informations</h2>
+    <p>Bienvenue chez BOB LA MOULA 24/24.</p>
+    <p>Modifie ce texte dans le code pour présenter ton activité.</p>
+  </section>
 
-<section id="avis" class="panel">
-  <h2>RETOURS CLIENTS</h2>
-  <div class="info">
-    <p>Les retours clients seront affichés ici prochainement.</p>
-    <p>Merci de votre visite !</p>
-  </div>
-</section>
+  <section id="avis" class="panel">
+    <h2>⭐ Retours clients</h2>
+    <p>Ajoute ici les retours clients que tu souhaites afficher.</p>
+  </section>
 </main>
 
-<footer>© Bob La Moula 24/24 · Tous droits réservés</footer>
+<footer>© BOB LA MOULA 24/24</footer>
 
 <script>
-const products = Array.from({ length: 55 }, (_, i) => ({
-  name: `Article ${i + 1}`,
-  price: "Prix à définir",
-  photo: ""
-}));
+// ======================================
+// 55 PRODUITS - 4 PHOTOS MAXIMUM CHACUN
+// Modifie le nom, le prix et la description.
+// Pour les photos, ajoute tes fichiers dans
+// le dossier images de ton dépôt GitHub.
+// ======================================
 
-const container = document.getElementById("products");
+const products = [
+  {name:"Article 1",price:"",description:"",photos:["images/produit1-photo1.jpg","images/produit1-photo2.jpg","images/produit1-photo3.jpg","images/produit1-photo4.jpg"]},
+  {name:"Article 2",price:"",description:"",photos:["images/produit2-photo1.jpg","images/produit2-photo2.jpg","images/produit2-photo3.jpg","images/produit2-photo4.jpg"]},
+  {name:"Article 3",price:"",description:"",photos:["images/produit3-photo1.jpg","images/produit3-photo2.jpg","images/produit3-photo3.jpg","images/produit3-photo4.jpg"]},
+  {name:"Article 4",price:"",description:"",photos:["images/produit4-photo1.jpg","images/produit4-photo2.jpg","images/produit4-photo3.jpg","images/produit4-photo4.jpg"]},
+  {name:"Article 5",price:"",description:"",photos:["images/produit5-photo1.jpg","images/produit5-photo2.jpg","images/produit5-photo3.jpg","images/produit5-photo4.jpg"]},
+  {name:"Article 6",price:"",description:"",photos:["images/produit6-photo1.jpg","images/produit6-photo2.jpg","images/produit6-photo3.jpg","images/produit6-photo4.jpg"]},
+  {name:"Article 7",price:"",description:"",photos:["images/produit7-photo1.jpg","images/produit7-photo2.jpg","images/produit7-photo3.jpg","images/produit7-photo4.jpg"]},
+  {name:"Article 8",price:"",description:"",photos:["images/produit8-photo1.jpg","images/produit8-photo2.jpg","images/produit8-photo3.jpg","images/produit8-photo4.jpg"]},
+  {name:"Article 9",price:"",description:"",photos:["images/produit9-photo1.jpg","images/produit9-photo2.jpg","images/produit9-photo3.jpg","images/produit9-photo4.jpg"]},
+  {name:"Article 10",price:"",description:"",photos:["images/produit10-photo1.jpg","images/produit10-photo2.jpg","images/produit10-photo3.jpg","images/produit10-photo4.jpg"]},
+  {name:"Article 11",price:"",description:"",photos:["images/produit11-photo1.jpg","images/produit11-photo2.jpg","images/produit11-photo3.jpg","images/produit11-photo4.jpg"]},
+  {name:"Article 12",price:"",description:"",photos:["images/produit12-photo1.jpg","images/produit12-photo2.jpg","images/produit12-photo3.jpg","images/produit12-photo4.jpg"]},
+  {name:"Article 13",price:"",description:"",photos:["images/produit13-photo1.jpg","images/produit13-photo2.jpg","images/produit13-photo3.jpg","images/produit13-photo4.jpg"]},
+  {name:"Article 14",price:"",description:"",photos:["images/produit14-photo1.jpg","images/produit14-photo2.jpg","images/produit14-photo3.jpg","images/produit14-photo4.jpg"]},
+  {name:"Article 15",price:"",description:"",photos:["images/produit15-photo1.jpg","images/produit15-photo2.jpg","images/produit15-photo3.jpg","images/produit15-photo4.jpg"]},
+  {name:"Article 16",price:"",description:"",photos:["images/produit16-photo1.jpg","images/produit16-photo2.jpg","images/produit16-photo3.jpg","images/produit16-photo4.jpg"]},
+  {name:"Article 17",price:"",description:"",photos:["images/produit17-photo1.jpg","images/produit17-photo2.jpg","images/produit17-photo3.jpg","images/produit17-photo4.jpg"]},
+  {name:"Article 18",price:"",description:"",photos:["images/produit18-photo1.jpg","images/produit18-photo2.jpg","images/produit18-photo3.jpg","images/produit18-photo4.jpg"]},
+  {name:"Article 19",price:"",description:"",photos:["images/produit19-photo1.jpg","images/produit19-photo2.jpg","images/produit19-photo3.jpg","images/produit19-photo4.jpg"]},
+  {name:"Article 20",price:"",description:"",photos:["images/produit20-photo1.jpg","images/produit20-photo2.jpg","images/produit20-photo3.jpg","images/produit20-photo4.jpg"]},
+  {name:"Article 21",price:"",description:"",photos:["images/produit21-photo1.jpg","images/produit21-photo2.jpg","images/produit21-photo3.jpg","images/produit21-photo4.jpg"]},
+  {name:"Article 22",price:"",description:"",photos:["images/produit22-photo1.jpg","images/produit22-photo2.jpg","images/produit22-photo3.jpg","images/produit22-photo4.jpg"]},
+  {name:"Article 23",price:"",description:"",photos:["images/produit23-photo1.jpg","images/produit23-photo2.jpg","images/produit23-photo3.jpg","images/produit23-photo4.jpg"]},
+  {name:"Article 24",price:"",description:"",photos:["images/produit24-photo1.jpg","images/produit24-photo2.jpg","images/produit24-photo3.jpg","images/produit24-photo4.jpg"]},
+  {name:"Article 25",price:"",description:"",photos:["images/produit25-photo1.jpg","images/produit25-photo2.jpg","images/produit25-photo3.jpg","images/produit25-photo4.jpg"]},
+  {name:"Article 26",price:"",description:"",photos:["images/produit26-photo1.jpg","images/produit26-photo2.jpg","images/produit26-photo3.jpg","images/produit26-photo4.jpg"]},
+  {name:"Article 27",price:"",description:"",photos:["images/produit27-photo1.jpg","images/produit27-photo2.jpg","images/produit27-photo3.jpg","images/produit27-photo4.jpg"]},
+  {name:"Article 28",price:"",description:"",photos:["images/produit28-photo1.jpg","images/produit28-photo2.jpg","images/produit28-photo3.jpg","images/produit28-photo4.jpg"]},
+  {name:"Article 29",price:"",description:"",photos:["images/produit29-photo1.jpg","images/produit29-photo2.jpg","images/produit29-photo3.jpg","images/produit29-photo4.jpg"]},
+  {name:"Article 30",price:"",description:"",photos:["images/produit30-photo1.jpg","images/produit30-photo2.jpg","images/produit30-photo3.jpg","images/produit30-photo4.jpg"]},
+  {name:"Article 31",price:"",description:"",photos:["images/produit31-photo1.jpg","images/produit31-photo2.jpg","images/produit31-photo3.jpg","images/produit31-photo4.jpg"]},
+  {name:"Article 32",price:"",description:"",photos:["images/produit32-photo1.jpg","images/produit32-photo2.jpg","images/produit32-photo3.jpg","images/produit32-photo4.jpg"]},
+  {name:"Article 33",price:"",description:"",photos:["images/produit33-photo1.jpg","images/produit33-photo2.jpg","images/produit33-photo3.jpg","images/produit33-photo4.jpg"]},
+  {name:"Article 34",price:"",description:"",photos:["images/produit34-photo1.jpg","images/produit34-photo2.jpg","images/produit34-photo3.jpg","images/produit34-photo4.jpg"]},
+  {name:"Article 35",price:"",description:"",photos:["images/produit35-photo1.jpg","images/produit35-photo2.jpg","images/produit35-photo3.jpg","images/produit35-photo4.jpg"]},
+  {name:"Article 36",price:"",description:"",photos:["images/produit36-photo1.jpg","images/produit36-photo2.jpg","images/produit36-photo3.jpg","images/produit36-photo4.jpg"]},
+  {name:"Article 37",price:"",description:"",photos:["images/produit37-photo1.jpg","images/produit37-photo2.jpg","images/produit37-photo3.jpg","images/produit37-photo4.jpg"]},
+  {name:"Article 38",price:"",description:"",photos:["images/produit38-photo1.jpg","images/produit38-photo2.jpg","images/produit38-photo3.jpg","images/produit38-photo4.jpg"]},
+  {name:"Article 39",price:"",description:"",photos:["images/produit39-photo1.jpg","images/produit39-photo2.jpg","images/produit39-photo3.jpg","images/produit39-photo4.jpg"]},
+  {name:"Article 40",price:"",description:"",photos:["images/produit40-photo1.jpg","images/produit40-photo2.jpg","images/produit40-photo3.jpg","images/produit40-photo4.jpg"]},
+  {name:"Article 41",price:"",description:"",photos:["images/produit41-photo1.jpg","images/produit41-photo2.jpg","images/produit41-photo3.jpg","images/produit41-photo4.jpg"]},
+  {name:"Article 42",price:"",description:"",photos:["images/produit42-photo1.jpg","images/produit42-photo2.jpg","images/produit42-photo3.jpg","images/produit42-photo4.jpg"]},
+  {name:"Article 43",price:"",description:"",photos:["images/produit43-photo1.jpg","images/produit43-photo2.jpg","images/produit43-photo3.jpg","images/produit43-photo4.jpg"]},
+  {name:"Article 44",price:"",description:"",photos:["images/produit44-photo1.jpg","images/produit44-photo2.jpg","images/produit44-photo3.jpg","images/produit44-photo4.jpg"]},
+  {name:"Article 45",price:"",description:"",photos:["images/produit45-photo1.jpg","images/produit45-photo2.jpg","images/produit45-photo3.jpg","images/produit45-photo4.jpg"]},
+  {name:"Article 46",price:"",description:"",photos:["images/produit46-photo1.jpg","images/produit46-photo2.jpg","images/produit46-photo3.jpg","images/produit46-photo4.jpg"]},
+  {name:"Article 47",price:"",description:"",photos:["images/produit47-photo1.jpg","images/produit47-photo2.jpg","images/produit47-photo3.jpg","images/produit47-photo4.jpg"]},
+  {name:"Article 48",price:"",description:"",photos:["images/produit48-photo1.jpg","images/produit48-photo2.jpg","images/produit48-photo3.jpg","images/produit48-photo4.jpg"]},
+  {name:"Article 49",price:"",description:"",photos:["images/produit49-photo1.jpg","images/produit49-photo2.jpg","images/produit49-photo3.jpg","images/produit49-photo4.jpg"]},
+  {name:"Article 50",price:"",description:"",photos:["images/produit50-photo1.jpg","images/produit50-photo2.jpg","images/produit50-photo3.jpg","images/produit50-photo4.jpg"]},
+  {name:"Article 51",price:"",description:"",photos:["images/produit51-photo1.jpg","images/produit51-photo2.jpg","images/produit51-photo3.jpg","images/produit51-photo4.jpg"]},
+  {name:"Article 52",price:"",description:"",photos:["images/produit52-photo1.jpg","images/produit52-photo2.jpg","images/produit52-photo3.jpg","images/produit52-photo4.jpg"]},
+  {name:"Article 53",price:"",description:"",photos:["images/produit53-photo1.jpg","images/produit53-photo2.jpg","images/produit53-photo3.jpg","images/produit53-photo4.jpg"]},
+  {name:"Article 54",price:"",description:"",photos:["images/produit54-photo1.jpg","images/produit54-photo2.jpg","images/produit54-photo3.jpg","images/produit54-photo4.jpg"]},
+  {name:"Article 55",price:"",description:"",photos:["images/produit55-photo1.jpg","images/produit55-photo2.jpg","images/produit55-photo3.jpg","images/produit55-photo4.jpg"]}
+];
 
-products.forEach((p,i)=>{
-  const card=document.createElement("article");
-  card.className="card";
+function showSection(sectionId) {
+  document.getElementById("catalogue").style.display =
+    sectionId === "catalogue" ? "block" : "none";
 
-  const photo=document.createElement("div");
-  photo.className="photo";
+  document.getElementById("infos").style.display =
+    sectionId === "infos" ? "block" : "none";
 
-  if(p.photo){
-    const img=document.createElement("img");
-    img.src=p.photo;
-    img.alt=p.name;
-    photo.appendChild(img);
-  }else{
-    photo.textContent="📷 Photo à ajouter";
-  }
+  document.getElementById("avis").style.display =
+    sectionId === "avis" ? "block" : "none";
 
-  const name=document.createElement("h3");
-  name.textContent=p.name;
-
-  const price=document.createElement("div");
-  price.className="price";
-  price.textContent=p.price;
-
-  const button=document.createElement("button");
-  button.className="action";
-  button.textContent="Sélectionner";
-  button.onclick=()=>{
-    alert("Article sélectionné : "+p.name+". Les commandes ne sont pas encore activées.");
-  };
-
-  card.append(photo,name,price,button);
-  container.appendChild(card);
-});
-
-function showPanel(id){
-  document.querySelectorAll(".panel").forEach(panel=>{
-    panel.classList.remove("active");
-  });
-  document.getElementById(id).classList.add("active");
-  window.scrollTo({top:0,behavior:"smooth"});
+  window.scrollTo({top: 0, behavior: "smooth"});
 }
+
+function renderProducts() {
+  const container = document.getElementById("products");
+  container.innerHTML = "";
+
+  products.forEach((product, index) => {
+    const card = document.createElement("article");
+    card.className = "product";
+
+    const photoArea = document.createElement("div");
+    photoArea.className = "main-photo";
+
+    const thumbnails = document.createElement("div");
+    thumbnails.className = "thumbnails";
+
+    // LIMITE STRICTE : 4 PHOTOS MAXIMUM
+    const photos = Array.isArray(product.photos)
+      ? product.photos
+          .filter(photo =>
+            typeof photo === "string" && photo.trim() !== ""
+          )
+          .slice(0, 4)
+      : [];
+
+    function showPhoto(path) {
+      photoArea.innerHTML = "";
+
+      const img = document.createElement("img");
+      img.src = path;
+      img.alt = product.name || ("Article " + (index + 1));
+
+      img.onerror = function() {
+        photoArea.innerHTML = "";
+        const message = document.createElement("div");
+        message.className = "no-photo";
+        message.textContent = "Photo à ajouter";
+        photoArea.appendChild(message);
+      };
+
+      photoArea.appendChild(img);
+    }
+
+    if (photos.length > 0) {
+      showPhoto(photos[0]);
+
+      photos.forEach((path, photoIndex) => {
+        const thumb = document.createElement("img");
+        thumb.src = path;
+        thumb.alt = "Photo " + (photoIndex + 1);
+        thumb.onerror = function() {
+          thumb.style.display = "none";
+        };
+        thumb.addEventListener("click", () => showPhoto(path));
+        thumbnails.appendChild(thumb);
+      });
+    } else {
+      const message = document.createElement("div");
+      message.className = "no-photo";
+      message.textContent = "Photo à ajouter";
+      photoArea.appendChild(message);
+    }
+
+    const title = document.createElement("h3");
+    title.textContent = product.name || ("Article " + (index + 1));
+
+    const price = document.createElement("div");
+    price.className = "price";
+    price.textContent = product.price || "Prix à renseigner";
+
+    const description = document.createElement("p");
+    description.className = "description";
+    description.textContent =
+      product.description || "Description à renseigner.";
+
+    card.appendChild(photoArea);
+
+    if (photos.length > 1) {
+      card.appendChild(thumbnails);
+    }
+
+    card.appendChild(title);
+    card.appendChild(price);
+    card.appendChild(description);
+    container.appendChild(card);
+  });
+}
+
+renderProducts();
 </script>
 </body>
 </html>
