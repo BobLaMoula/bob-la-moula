@@ -29,46 +29,43 @@ header {
 .logo {
   margin: 0;
   color: var(--gold);
-  font-size: clamp(28px, 7vw, 42px);
+  font-size: clamp(27px, 7vw, 42px);
   font-weight: 900;
   letter-spacing: 2px;
 }
 nav {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 8px;
-  padding: 12px;
+  justify-content: center;
+  gap: 7px;
+  padding: 12px 6px;
   background: #111;
   position: sticky;
   top: 0;
-  z-index: 5;
+  z-index: 10;
 }
-button {
-  cursor: pointer;
-  font-weight: bold;
-}
-nav button, .back-button {
-  padding: 11px 16px;
-  border: 1px solid var(--gold);
-  border-radius: 7px;
+button, a { cursor: pointer; }
+nav button, .back, .outline {
   background: #171717;
   color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 7px;
+  padding: 11px 13px;
+  font-weight: bold;
+  text-decoration: none;
 }
-nav button.active, nav button:hover,
-.back-button:hover {
+nav button.active, nav button:hover, .back:hover {
   background: var(--gold);
   color: #000;
 }
 main {
-  width: min(1200px, 100%);
+  max-width: 1200px;
   padding: 16px;
   margin: auto;
 }
-h2 {
-  color: var(--gold);
-  text-align: center;
-}
+h2 { color: var(--gold); text-align: center; }
+.section { display: none; }
+.section.active { display: block; }
 #search {
   width: 100%;
   padding: 14px;
@@ -85,18 +82,15 @@ h2 {
   gap: 13px;
 }
 .product-card {
+  padding: 0;
   overflow: hidden;
   border: 1px solid #333;
   border-radius: 10px;
   background: var(--card);
   color: white;
   text-align: left;
-  padding: 0;
-  width: 100%;
 }
-.product-card:hover {
-  border-color: var(--gold);
-}
+.product-card:hover { border-color: var(--gold); }
 .product-card img {
   width: 100%;
   height: 155px;
@@ -104,27 +98,15 @@ h2 {
   background: #080808;
   display: block;
 }
-.card-info {
-  padding: 12px;
-}
-.card-info h3 {
-  margin: 0 0 8px;
-  font-size: 16px;
-}
+.card-info { padding: 12px; }
+.card-info h3 { margin: 0 0 8px; font-size: 16px; }
 .price {
   color: var(--gold);
   font-size: 20px;
   font-weight: bold;
 }
-.detail {
-  max-width: 700px;
-  margin: auto;
-}
-.detail h2 {
-  text-align: left;
-}
-.detail-main-photo {
-  display: block;
+.detail { max-width: 720px; margin: auto; }
+.detail-photo {
   width: 100%;
   height: min(65vw, 400px);
   object-fit: contain;
@@ -133,50 +115,78 @@ h2 {
 }
 .thumbnails {
   display: flex;
-  gap: 9px;
+  gap: 8px;
   overflow-x: auto;
   padding: 10px 0;
 }
 .thumbnails img {
-  width: 75px;
-  height: 75px;
+  width: 72px;
+  height: 72px;
   object-fit: cover;
-  background: #111;
   border: 1px solid #555;
   border-radius: 6px;
-  cursor: pointer;
 }
-.detail-price {
-  color: var(--gold);
-  font-size: 27px;
-  font-weight: bold;
-  margin: 15px 0;
-}
-.description {
-  color: #ccc;
-  line-height: 1.6;
-  white-space: pre-wrap;
-}
-label {
-  display: block;
-  margin: 16px 0 7px;
-}
+.description { color: #ccc; line-height: 1.6; white-space: pre-wrap; }
+label { display: block; margin: 15px 0 7px; }
 select {
   width: 100%;
-  padding: 13px;
+  padding: 12px;
   background: #101010;
   color: white;
   border: 1px solid #444;
   border-radius: 7px;
   font-size: 16px;
 }
-.section { display: none; }
-.section.active { display: block; }
-.empty {
-  grid-column: 1 / -1;
-  color: #bbb;
+.gold-button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 14px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--gold);
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+}
+.empty { text-align: center; color: #bbb; padding: 25px 5px; }
+.cart-item {
+  background: var(--card);
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 14px;
+  margin: 10px 0;
+}
+.cart-item p { color: #ccc; }
+.remove {
+  background: transparent;
+  color: #ff8d8d;
+  border: 1px solid #844;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.gallery img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid #333;
+  border-radius: 7px;
+  background: #171717;
+}
+.whatsapp {
+  display: block;
+  margin: 18px 0;
+  padding: 15px;
   text-align: center;
-  padding: 30px 8px;
+  text-decoration: none;
+  color: white;
+  background: #128c4a;
+  border-radius: 8px;
+  font-weight: bold;
 }
 footer {
   margin-top: 30px;
@@ -184,6 +194,10 @@ footer {
   text-align: center;
   border-top: 1px solid #333;
   color: #999;
+}
+@media (max-width: 420px) {
+  nav button { padding: 10px 9px; font-size: 12px; }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 </style>
 </head>
@@ -196,8 +210,11 @@ footer {
 
 <nav>
   <button class="active" onclick="showSection('catalogue',this)">MENU</button>
-  <button onclick="showSection('informations',this)">INFORMATIONS</button>
+  <button onclick="showSection('panier',this)">
+    PANIER (<span id="cartCount">0</span>)
+  </button>
   <button onclick="showSection('avis',this)">RETOURS CLIENTS</button>
+  <button onclick="showSection('informations',this)">CONTACT</button>
 </nav>
 
 <main>
@@ -210,37 +227,42 @@ footer {
   </section>
 
   <section id="detail" class="section">
-    <button class="back-button" onclick="backToCatalogue()">
-      ← Retour aux produits
-    </button>
+    <button class="back" onclick="backToCatalogue()">← Retour au menu</button>
     <div id="productDetail" class="detail"></div>
   </section>
 
-  <section id="informations" class="section">
-    <h2>INFORMATIONS</h2>
-    <p>BOB LA MOULA 24/24</p>
+  <section id="panier" class="section">
+    <h2>MON PANIER</h2>
+    <div id="cartItems"></div>
+    <div id="cartSummary"></div>
   </section>
 
   <section id="avis" class="section">
     <h2>RETOURS CLIENTS</h2>
-    <p>Retours clients</p>
+    <p class="description">
+      Retrouvez ici les photos des retours clients.
+    </p>
+    <div id="reviewGallery" class="gallery"></div>
+  </section>
+
+  <section id="informations" class="section">
+    <h2>NOUS CONTACTER</h2>
+    <p class="description">
+      Pour toute question concernant la boutique, contacte-nous directement sur WhatsApp en cliquant sur le bouton ci-dessous.
+    </p>
+    <a class="whatsapp"
+       href="https://wa.me/33653430135"
+       target="_blank"
+       rel="noopener noreferrer">
+      CONTACTER SUR WHATSAPP
+    </a>
   </section>
 </main>
 
 <footer>BOB LA MOULA 24/24</footer>
 
 <script>
-/*
-  CATALOGUE DE 55 PRODUITS
-
-  Pour chaque article, renseigne :
-  name        : nom du produit
-  price       : prix affiché
-  description : description
-  photos      : jusqu'à 4 chemins de photos
-  weight      : true pour afficher le choix du poids
-*/
-
+/* CATALOGUE : 55 fiches à personnaliser */
 const products = Array.from({ length: 55 }, (_, i) => ({
   id: i + 1,
   name: "Produit " + (i + 1),
@@ -250,45 +272,51 @@ const products = Array.from({ length: 55 }, (_, i) => ({
   weight: true
 }));
 
-// EXEMPLE : pour modifier le premier produit, remplace ses données ici.
-products[0] = {
-  id: 1,
-  name: "Produit 1",
-  price: "Prix à définir",
-  description: "Ajoute ici la description du produit.",
-  photos: [
-    "images/produit1.jpg",
-    "images/produit1-2.jpg",
-    "images/produit1-3.jpg",
-    "images/produit1-4.jpg"
-  ],
-  weight: true
-};
+/*
+  PERSONNALISE LES FICHES DANS LE TABLEAU products.
+  Exemple :
+  products[0] = {
+    id: 1,
+    name: "Nom de l'article",
+    price: "19,90 €",
+    description: "Description de l'article",
+    photos: ["images/photo1.jpg", "images/photo2.jpg"],
+    weight: true
+  };
+*/
 
 const weights = [
-  "300 g",
-  "500 g",
-  "100 g",
-  "800 g",
-  "950 g",
-  "1 kg",
-  "2 kg",
-  "3 kg",
-  "4 kg"
+  "300 g", "500 g", "100 g", "800 g", "950 g",
+  "1 kg", "2 kg", "3 kg", "4 kg"
 ];
 
+/* Galerie de 30 photos : ajoute les fichiers dans images/avis/ */
+const reviewPhotos = Array.from(
+  { length: 30 },
+  (_, i) => "images/avis/avis" + (i + 1) + ".jpg"
+);
+
+/* Panier temporaire dans la session de navigation */
+let cart = [];
+let currentProduct = null;
+
 function showSection(id, button) {
-  document.querySelectorAll(".section").forEach(section => {
-    section.classList.remove("active");
-  });
+  document.querySelectorAll(".section").forEach(section =>
+    section.classList.remove("active")
+  );
   document.getElementById(id).classList.add("active");
 
-  document.querySelectorAll("nav button").forEach(btn => {
-    btn.classList.remove("active");
-  });
+  document.querySelectorAll("nav button").forEach(btn =>
+    btn.classList.remove("active")
+  );
   if (button) button.classList.add("active");
 
+  if (id === "panier") renderCart();
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function backToCatalogue() {
+  showSection("catalogue", document.querySelector("nav button"));
 }
 
 function makeImage(src, className, alt) {
@@ -297,8 +325,7 @@ function makeImage(src, className, alt) {
   img.alt = alt;
   if (src) img.src = src;
   img.onerror = () => {
-    img.removeAttribute("src");
-    img.alt = "Photo à ajouter";
+    img.style.display = "none";
   };
   return img;
 }
@@ -307,42 +334,32 @@ function renderProducts() {
   const container = document.getElementById("products");
   const term = document.getElementById("search").value
     .trim().toLowerCase();
-
   container.replaceChildren();
 
-  const matches = products.filter(product =>
-    (product.name + " " + product.description)
-      .toLowerCase().includes(term)
+  const matches = products.filter(p =>
+    (p.name + " " + p.description).toLowerCase().includes(term)
   );
 
   if (!matches.length) {
-    const empty = document.createElement("div");
-    empty.className = "empty";
-    empty.textContent = "Aucun produit trouvé.";
-    container.appendChild(empty);
+    container.textContent = "Aucun produit trouvé.";
     return;
   }
 
   matches.forEach(product => {
     const button = document.createElement("button");
-    button.className = "product-card";
     button.type = "button";
+    button.className = "product-card";
     button.onclick = () => openProduct(product.id);
 
     const photos = (product.photos || []).slice(0, 4);
-    const image = makeImage(
-      photos[0] || "",
-      "",
-      product.name
-    );
-    button.appendChild(image);
+    button.appendChild(makeImage(photos[0] || "", "", product.name));
 
     const info = document.createElement("div");
     info.className = "card-info";
 
-    const title = document.createElement("h3");
-    title.textContent = product.name;
-    info.appendChild(title);
+    const name = document.createElement("h3");
+    name.textContent = product.name;
+    info.appendChild(name);
 
     const price = document.createElement("div");
     price.className = "price";
@@ -355,17 +372,16 @@ function renderProducts() {
 }
 
 function openProduct(id) {
-  const product = products.find(item => item.id === id);
+  const product = products.find(p => p.id === id);
   if (!product) return;
+  currentProduct = product;
 
   const detail = document.getElementById("productDetail");
   detail.replaceChildren();
 
   const photos = (product.photos || []).slice(0, 4);
   const mainPhoto = makeImage(
-    photos[0] || "",
-    "detail-main-photo",
-    product.name
+    photos[0] || "", "detail-photo", product.name
   );
   detail.appendChild(mainPhoto);
 
@@ -375,6 +391,7 @@ function openProduct(id) {
 
     photos.forEach(photo => {
       const thumb = makeImage(photo, "", "Photo supplémentaire");
+      thumb.style.display = "block";
       thumb.onclick = () => {
         mainPhoto.src = photo;
         mainPhoto.style.display = "block";
@@ -386,10 +403,11 @@ function openProduct(id) {
 
   const title = document.createElement("h2");
   title.textContent = product.name;
+  title.style.textAlign = "left";
   detail.appendChild(title);
 
   const price = document.createElement("div");
-  price.className = "detail-price";
+  price.className = "price";
   price.textContent = product.price;
   detail.appendChild(price);
 
@@ -403,40 +421,149 @@ function openProduct(id) {
   detail.appendChild(quantityLabel);
 
   const quantity = document.createElement("select");
+  quantity.id = "selectedQuantity";
   for (let n = 1; n <= 99; n++) {
     const option = document.createElement("option");
-    option.value = String(n);
-    option.textContent = String(n);
+    option.value = n;
+    option.textContent = n;
     quantity.appendChild(option);
   }
   detail.appendChild(quantity);
 
   if (product.weight) {
-    const weightLabel = document.createElement("label");
-    weightLabel.textContent = "Poids";
-    detail.appendChild(weightLabel);
+    const label = document.createElement("label");
+    label.textContent = "Poids";
+    detail.appendChild(label);
 
-    const weightSelect = document.createElement("select");
+    const select = document.createElement("select");
+    select.id = "selectedWeight";
+
     weights.forEach(weight => {
       const option = document.createElement("option");
       option.value = weight;
       option.textContent = weight;
-      weightSelect.appendChild(option);
+      select.appendChild(option);
     });
-    detail.appendChild(weightSelect);
+    detail.appendChild(select);
   }
+
+  const add = document.createElement("button");
+  add.className = "gold-button";
+  add.textContent = "AJOUTER AU PANIER";
+  add.onclick = addToCart;
+  detail.appendChild(add);
 
   showSection("detail", null);
 }
 
-function backToCatalogue() {
-  showSection(
-    "catalogue",
-    document.querySelector("nav button")
+function addToCart() {
+  if (!currentProduct) return;
+
+  const quantity = Number(
+    document.getElementById("selectedQuantity").value
   );
+  const weightElement = document.getElementById("selectedWeight");
+  const weight = weightElement ? weightElement.value : "Non applicable";
+
+  const existing = cart.find(item =>
+    item.id === currentProduct.id && item.weight === weight
+  );
+
+  if (existing) {
+    if (existing.quantity + quantity > 99) {
+      alert("La quantité maximale par ligne est de 99.");
+      return;
+    }
+    existing.quantity += quantity;
+  } else {
+    cart.push({
+      id: currentProduct.id,
+      name: currentProduct.name,
+      price: currentProduct.price,
+      weight,
+      quantity
+    });
+  }
+
+  updateCartCount();
+  alert("Article ajouté au panier !");
+}
+
+function updateCartCount() {
+  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+  document.getElementById("cartCount").textContent = count;
+}
+
+function renderCart() {
+  const container = document.getElementById("cartItems");
+  const summary = document.getElementById("cartSummary");
+  container.replaceChildren();
+  summary.replaceChildren();
+
+  if (!cart.length) {
+    container.textContent = "Ton panier est vide.";
+    return;
+  }
+
+  cart.forEach((item, index) => {
+    const card = document.createElement("div");
+    card.className = "cart-item";
+
+    const name = document.createElement("strong");
+    name.textContent = item.name;
+    card.appendChild(name);
+
+    const price = document.createElement("p");
+    price.textContent = "Prix unitaire : " + item.price;
+    card.appendChild(price);
+
+    const details = document.createElement("p");
+    details.textContent =
+      "Quantité : " + item.quantity + " — Poids : " + item.weight;
+    card.appendChild(details);
+
+    const remove = document.createElement("button");
+    remove.className = "remove";
+    remove.textContent = "Retirer";
+    remove.onclick = () => {
+      cart.splice(index, 1);
+      updateCartCount();
+      renderCart();
+    };
+    card.appendChild(remove);
+
+    container.appendChild(card);
+  });
+
+  const clear = document.createElement("button");
+  clear.className = "gold-button";
+  clear.textContent = "VIDER LE PANIER";
+  clear.onclick = () => {
+    if (confirm("Vider tout le panier ?")) {
+      cart = [];
+      updateCartCount();
+      renderCart();
+    }
+  };
+  summary.appendChild(clear);
+}
+
+/* Afficher les photos disponibles parmi les 30 emplacements */
+function renderReviewGallery() {
+  const gallery = document.getElementById("reviewGallery");
+
+  reviewPhotos.forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = "Retour client";
+    img.loading = "lazy";
+    img.onerror = () => img.remove();
+    gallery.appendChild(img);
+  });
 }
 
 renderProducts();
+renderReviewGallery();
 </script>
 </body>
 </html>
