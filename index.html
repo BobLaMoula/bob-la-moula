@@ -274,448 +274,63 @@ const products = Array.from({ length: 55 }, (_, i) => ({
 
 /*
   PERSONNALISE LES FICHES DANS LE TABLEAU products.
- 
+ /* CATALOGUE : 55 fiches produits */
 const products = [
-  {
-    id: 1,
-    name: "GLOCK 19 Gen 6 9mm",
-    price: "1200.00€",
-    description: "Glock 19 gen6 9mm",
-    photos: ["images/IMG 0652 jpegl", "images/IMG_0653.jpeg", "images/IMG_0654.jpeg", "images/IMG_0655.jpeg"],
-    weight: true
-  },
-  {
-    id: 2,
-    name: "NOM DU PRODUIT 2",
-    price: "PRIX DU PRODUIT 2",
-    description: "DESCRIPTION DU PRODUIT 2",
-    photos: ["images/produit2-1.jpg", "images/produit2-2.jpg", "images/produit2-3.jpg", "images/produit2-4.jpg"],
-    weight: true
-  },
-  {
-    id: 3,
-    name: "NOM DU PRODUIT 3",
-    price: "PRIX DU PRODUIT 3",
-    description: "DESCRIPTION DU PRODUIT 3",
-    photos: ["images/produit3-1.jpg", "images/produit3-2.jpg", "images/produit3-3.jpg", "images/produit3-4.jpg"],
-    weight: true
-  },
-  {
-    id: 4,
-    name: "NOM DU PRODUIT 4",
-    price: "PRIX DU PRODUIT 4",
-    description: "DESCRIPTION DU PRODUIT 4",
-    photos: ["images/produit4-1.jpg", "images/produit4-2.jpg", "images/produit4-3.jpg", "images/produit4-4.jpg"],
-    weight: true
-  },
-  {
-    id: 5,
-    name: "NOM DU PRODUIT 5",
-    price: "PRIX DU PRODUIT 5",
-    description: "DESCRIPTION DU PRODUIT 5",
-    photos: ["images/produit5-1.jpg", "images/produit5-2.jpg", "images/produit5-3.jpg", "images/produit5-4.jpg"],
-    weight: true
-  },
-  {
-    id: 6,
-    name: "NOM DU PRODUIT 6",
-    price: "PRIX DU PRODUIT 6",
-    description: "DESCRIPTION DU PRODUIT 6",
-    photos: ["images/produit6-1.jpg", "images/produit6-2.jpg", "images/produit6-3.jpg", "images/produit6-4.jpg"],
-    weight: true
-  },
-  {
-    id: 7,
-    name: "NOM DU PRODUIT 7",
-    price: "PRIX DU PRODUIT 7",
-    description: "DESCRIPTION DU PRODUIT 7",
-    photos: ["images/produit7-1.jpg", "images/produit7-2.jpg", "images/produit7-3.jpg", "images/produit7-4.jpg"],
-    weight: true
-  },
-  {
-    id: 8,
-    name: "NOM DU PRODUIT 8",
-    price: "PRIX DU PRODUIT 8",
-    description: "DESCRIPTION DU PRODUIT 8",
-    photos: ["images/produit8-1.jpg", "images/produit8-2.jpg", "images/produit8-3.jpg", "images/produit8-4.jpg"],
-    weight: true
-  },
-  {
-    id: 9,
-    name: "NOM DU PRODUIT 9",
-    price: "PRIX DU PRODUIT 9",
-    description: "DESCRIPTION DU PRODUIT 9",
-    photos: ["images/produit9-1.jpg", "images/produit9-2.jpg", "images/produit9-3.jpg", "images/produit9-4.jpg"],
-    weight: true
-  },
-  {
-    id: 10,
-    name: "NOM DU PRODUIT 10",
-    price: "PRIX DU PRODUIT 10",
-    description: "DESCRIPTION DU PRODUIT 10",
-    photos: ["images/produit10-1.jpg", "images/produit10-2.jpg", "images/produit10-3.jpg", "images/produit10-4.jpg"],
-    weight: true
-  },
-  {
-    id: 11,
-    name: "NOM DU PRODUIT 11",
-    price: "PRIX DU PRODUIT 11",
-    description: "DESCRIPTION DU PRODUIT 11",
-    photos: ["images/produit11-1.jpg", "images/produit11-2.jpg", "images/produit11-3.jpg", "images/produit11-4.jpg"],
-    weight: true
-  },
-  {
-    id: 12,
-    name: "NOM DU PRODUIT 12",
-    price: "PRIX DU PRODUIT 12",
-    description: "DESCRIPTION DU PRODUIT 12",
-    photos: ["images/produit12-1.jpg", "images/produit12-2.jpg", "images/produit12-3.jpg", "images/produit12-4.jpg"],
-    weight: true
-  },
-  {
-    id: 13,
-    name: "NOM DU PRODUIT 13",
-    price: "PRIX DU PRODUIT 13",
-    description: "DESCRIPTION DU PRODUIT 13",
-    photos: ["images/produit13-1.jpg", "images/produit13-2.jpg", "images/produit13-3.jpg", "images/produit13-4.jpg"],
-    weight: true
-  },
-  {
-    id: 14,
-    name: "NOM DU PRODUIT 14",
-    price: "PRIX DU PRODUIT 14",
-    description: "DESCRIPTION DU PRODUIT 14",
-    photos: ["images/produit14-1.jpg", "images/produit14-2.jpg", "images/produit14-3.jpg", "images/produit14-4.jpg"],
-    weight: true
-  },
-  {
-    id: 15,
-    name: "NOM DU PRODUIT 15",
-    price: "PRIX DU PRODUIT 15",
-    description: "DESCRIPTION DU PRODUIT 15",
-    photos: ["images/produit15-1.jpg", "images/produit15-2.jpg", "images/produit15-3.jpg", "images/produit15-4.jpg"],
-    weight: true
-  },
-  {
-    id: 16,
-    name: "NOM DU PRODUIT 16",
-    price: "PRIX DU PRODUIT 16",
-    description: "DESCRIPTION DU PRODUIT 16",
-    photos: ["images/produit16-1.jpg", "images/produit16-2.jpg", "images/produit16-3.jpg", "images/produit16-4.jpg"],
-    weight: true
-  },
-  {
-    id: 17,
-    name: "NOM DU PRODUIT 17",
-    price: "PRIX DU PRODUIT 17",
-    description: "DESCRIPTION DU PRODUIT 17",
-    photos: ["images/produit17-1.jpg", "images/produit17-2.jpg", "images/produit17-3.jpg", "images/produit17-4.jpg"],
-    weight: true
-  },
-  {
-    id: 18,
-    name: "NOM DU PRODUIT 18",
-    price: "PRIX DU PRODUIT 18",
-    description: "DESCRIPTION DU PRODUIT 18",
-    photos: ["images/produit18-1.jpg", "images/produit18-2.jpg", "images/produit18-3.jpg", "images/produit18-4.jpg"],
-    weight: true
-  },
-  {
-    id: 19,
-    name: "NOM DU PRODUIT 19",
-    price: "PRIX DU PRODUIT 19",
-    description: "DESCRIPTION DU PRODUIT 19",
-    photos: ["images/produit19-1.jpg", "images/produit19-2.jpg", "images/produit19-3.jpg", "images/produit19-4.jpg"],
-    weight: true
-  },
-  {
-    id: 20,
-    name: "NOM DU PRODUIT 20",
-    price: "PRIX DU PRODUIT 20",
-    description: "DESCRIPTION DU PRODUIT 20",
-    photos: ["images/produit20-1.jpg", "images/produit20-2.jpg", "images/produit20-3.jpg", "images/produit20-4.jpg"],
-    weight: true
-  },
-  {
-    id: 21,
-    name: "NOM DU PRODUIT 21",
-    price: "PRIX DU PRODUIT 21",
-    description: "DESCRIPTION DU PRODUIT 21",
-    photos: ["images/produit21-1.jpg", "images/produit21-2.jpg", "images/produit21-3.jpg", "images/produit21-4.jpg"],
-    weight: true
-  },
-  {
-    id: 22,
-    name: "NOM DU PRODUIT 22",
-    price: "PRIX DU PRODUIT 22",
-    description: "DESCRIPTION DU PRODUIT 22",
-    photos: ["images/produit22-1.jpg", "images/produit22-2.jpg", "images/produit22-3.jpg", "images/produit22-4.jpg"],
-    weight: true
-  },
-  {
-    id: 23,
-    name: "NOM DU PRODUIT 23",
-    price: "PRIX DU PRODUIT 23",
-    description: "DESCRIPTION DU PRODUIT 23",
-    photos: ["images/produit23-1.jpg", "images/produit23-2.jpg", "images/produit23-3.jpg", "images/produit23-4.jpg"],
-    weight: true
-  },
-  {
-    id: 24,
-    name: "NOM DU PRODUIT 24",
-    price: "PRIX 24",
-    description: "DESCRIPTION DU PRODUIT 24",
-    photos: ["images/produit24-1.jpg", "images/produit24-2.jpg", "images/produit24-3.jpg", "images/produit24-4.jpg"],
-    weight: true
-  },
-  {
-    id: 25,
-    name: "NOM DU PRODUIT 25",
-    price: "PRIX 25",
-    description: "DESCRIPTION DU PRODUIT 25",
-    photos: ["images/produit25-1.jpg", "images/produit25-2.jpg", "images/produit25-3.jpg", "images/produit25-4.jpg"],
-    weight: true
-  },
-  {
-    id: 26,
-    name: "NOM DU PRODUIT 26",
-    price: "PRIX 26",
-    description: "DESCRIPTION DU PRODUIT 26",
-    photos: ["images/produit26-1.jpg", "images/produit26-2.jpg", "images/produit26-3.jpg", "images/produit26-4.jpg"],
-    weight: true
-  },
-  {
-    id: 27,
-    name: "NOM DU PRODUIT 27",
-    price: "PRIX 27",
-    description: "DESCRIPTION DU PRODUIT 27",
-    photos: ["images/produit27-1.jpg", "images/produit27-2.jpg", "images/produit27-3.jpg", "images/produit27-4.jpg"],
-    weight: true
-  },
-  {
-    id: 28,
-    name: "NOM DU PRODUIT 28",
-    price: "PRIX 28",
-    description: "DESCRIPTION DU PRODUIT 28",
-    photos: ["images/produit28-1.jpg", "images/produit28-2.jpg", "images/produit28-3.jpg", "images/produit28-4.jpg"],
-    weight: true
-  },
-  {
-    id: 29,
-    name: "NOM DU PRODUIT 29",
-    price: "PRIX 29",
-    description: "DESCRIPTION DU PRODUIT 29",
-    photos: ["images/produit29-1.jpg", "images/produit29-2.jpg", "images/produit29-3.jpg", "images/produit29-4.jpg"],
-    weight: true
-  },
-  {
-    id: 30,
-    name: "NOM DU PRODUIT 30",
-    price: "PRIX 30",
-    description: "DESCRIPTION DU PRODUIT 30",
-    photos: ["images/produit30-1.jpg", "images/produit30-2.jpg", "images/produit30-3.jpg", "images/produit30-4.jpg"],
-    weight: true
-  },
-  {
-    id: 31,
-    name: "NOM DU PRODUIT 31",
-    price: "PRIX 31",
-    description: "DESCRIPTION DU PRODUIT 31",
-    photos: ["images/produit31-1.jpg", "images/produit31-2.jpg", "images/produit31-3.jpg", "images/produit31-4.jpg"],
-    weight: true
-  },
-  {
-    id: 32,
-    name: "NOM DU PRODUIT 32",
-    price: "PRIX 32",
-    description: "DESCRIPTION DU PRODUIT 32",
-    photos: ["images/produit32-1.jpg", "images/produit32-2.jpg", "images/produit32-3.jpg", "images/produit32-4.jpg"],
-    weight: true
-  },
-  {
-    id: 33,
-    name: "NOM DU PRODUIT 33",
-    price: "PRIX 33",
-    description: "DESCRIPTION DU PRODUIT 33",
-    photos: ["images/produit33-1.jpg", "images/produit33-2.jpg", "images/produit33-3.jpg", "images/produit33-4.jpg"],
-    weight: true
-  },
-  {
-    id: 34,
-    name: "NOM DU PRODUIT 34",
-    price: "PRIX 34",
-    description: "DESCRIPTION DU PRODUIT 34",
-    photos: ["images/produit34-1.jpg", "images/produit34-2.jpg", "images/produit34-3.jpg", "images/produit34-4.jpg"],
-    weight: true
-  },
-  {
-    id: 35,
-    name: "NOM DU PRODUIT 35",
-    price: "PRIX 35",
-    description: "DESCRIPTION DU PRODUIT 35",
-    photos: ["images/produit35-1.jpg", "images/produit35-2.jpg", "images/produit35-3.jpg", "images/produit35-4.jpg"],
-    weight: true
-  },
-  {
-    id: 36,
-    name: "NOM DU PRODUIT 36",
-    price: "PRIX 36",
-    description: "DESCRIPTION DU PRODUIT 36",
-    photos: ["images/produit36-1.jpg", "images/produit36-2.jpg", "images/produit36-3.jpg", "images/produit36-4.jpg"],
-    weight: true
-  },
-  {
-    id: 37,
-    name: "NOM DU PRODUIT 37",
-    price: "PRIX 37",
-    description: "DESCRIPTION DU PRODUIT 37",
-    photos: ["images/produit37-1.jpg", "images/produit37-2.jpg", "images/produit37-3.jpg", "images/produit37-4.jpg"],
-    weight: true
-  },
-  {
-    id: 38,
-    name: "NOM DU PRODUIT 38",
-    price: "PRIX 38",
-    description: "DESCRIPTION DU PRODUIT 38",
-    photos: ["images/produit38-1.jpg", "images/produit38-2.jpg", "images/produit38-3.jpg", "images/produit38-4.jpg"],
-    weight: true
-  },
-  {
-    id: 39,
-    name: "NOM DU PRODUIT 39",
-    price: "PRIX 39",
-    description: "DESCRIPTION DU PRODUIT 39",
-    photos: ["images/produit39-1.jpg", "images/produit39-2.jpg", "images/produit39-3.jpg", "images/produit39-4.jpg"],
-    weight: true
-  },
-  {
-    id: 40,
-    name: "NOM DU PRODUIT 40",
-    price: "PRIX 40",
-    description: "DESCRIPTION DU PRODUIT 40",
-    photos: ["images/produit40-1.jpg", "images/produit40-2.jpg", "images/produit40-3.jpg", "images/produit40-4.jpg"],
-    weight: true
-  },
-  {
-    id: 41,
-    name: "NOM DU PRODUIT 41",
-    price: "PRIX 41",
-    description: "DESCRIPTION DU PRODUIT 41",
-    photos: ["images/produit41-1.jpg", "images/produit41-2.jpg", "images/produit41-3.jpg", "images/produit41-4.jpg"],
-    weight: true
-  },
-  {
-    id: 42,
-    name: "NOM DU PRODUIT 42",
-    price: "PRIX 42",
-    description: "DESCRIPTION DU PRODUIT 42",
-    photos: ["images/produit42-1.jpg", "images/produit42-2.jpg", "images/produit42-3.jpg", "images/produit42-4.jpg"],
-    weight: true
-  },
-  {
-    id: 43,
-    name: "NOM DU PRODUIT 43",
-    price: "PRIX 43",
-    description: "DESCRIPTION DU PRODUIT 43",
-    photos: ["images/produit43-1.jpg", "images/produit43-2.jpg", "images/produit43-3.jpg", "images/produit43-4.jpg"],
-    weight: true
-  },
-  {
-    id: 44,
-    name: "NOM DU PRODUIT 44",
-    price: "PRIX 44",
-    description: "DESCRIPTION DU PRODUIT 44",
-    photos: ["images/produit44-1.jpg", "images/produit44-2.jpg", "images/produit44-3.jpg", "images/produit44-4.jpg"],
-    weight: true
-  },
-  {
-    id: 45,
-    name: "NOM DU PRODUIT 45",
-    price: "PRIX 45",
-    description: "DESCRIPTION DU PRODUIT 45",
-    photos: ["images/produit45-1.jpg", "images/produit45-2.jpg", "images/produit45-3.jpg", "images/produit45-4.jpg"],
-    weight: true
-  },
-  {
-    id: 46,
-    name: "NOM DU PRODUIT 46",
-    price: "PRIX 46",
-    description: "DESCRIPTION DU PRODUIT 46",
-    photos: ["images/produit46-1.jpg", "images/produit46-2.jpg", "images/produit46-3.jpg", "images/produit46-4.jpg"],
-    weight: true
-  },
-  {
-    id: 47,
-    name: "NOM DU PRODUIT 47",
-    price: "PRIX 47",
-    description: "DESCRIPTION DU PRODUIT 47",
-    photos: ["images/produit47-1.jpg", "images/produit47-2.jpg", "images/produit47-3.jpg", "images/produit47-4.jpg"],
-    weight: true
-  },
-  {
-    id: 48,
-    name: "NOM DU PRODUIT 48",
-    price: "PRIX 48",
-    description: "DESCRIPTION DU PRODUIT 48",
-    photos: ["images/produit48-1.jpg", "images/produit48-2.jpg", "images/produit48-3.jpg", "images/produit48-4.jpg"],
-    weight: true
-  },
-  {
-    id: 49,
-    name: "NOM DU PRODUIT 49",
-    price: "PRIX 49",
-    description: "DESCRIPTION DU PRODUIT 49",
-    photos: ["images/produit49-1.jpg", "images/produit49-2.jpg", "images/produit49-3.jpg", "images/produit49-4.jpg"],
-    weight: true
-  },
-  {
-    id: 50,
-    name: "NOM DU PRODUIT 50",
-    price: "PRIX 50",
-    description: "DESCRIPTION DU PRODUIT 50",
-    photos: ["images/produit50-1.jpg", "images/produit50-2.jpg", "images/produit50-3.jpg", "images/produit50-4.jpg"],
-    weight: true
-  },
-  {
-    id: 51,
-    name: "NOM DU PRODUIT 51",
-    price: "PRIX 51",
-    description: "DESCRIPTION DU PRODUIT 51",
-    photos: ["images/produit51-1.jpg", "images/produit51-2.jpg", "images/produit51-3.jpg", "images/produit51-4.jpg"],
-    weight: true
-  },
-  {
-    id: 52,
-    name: "NOM DU PRODUIT 52",
-    price: "PRIX 52",
-    description: "DESCRIPTION DU PRODUIT 52",
-    photos: ["images/produit52-1.jpg", "images/produit52-2.jpg", "images/produit52-3.jpg", "images/produit52-4.jpg"],
-    weight: true
-  },
-  {
-    id: 53,
-    name: "NOM DU PRODUIT 53",
-    price: "PRIX 53",
-    description: "DESCRIPTION DU PRODUIT 53",
-    photos: ["images/produit53-1.jpg", "images/produit53-2.jpg", "images/produit53-3.jpg", "images/produit53-4.jpg"],
-    weight: true
-  },
-  {
-    id: 54,
-    name: "NOM DU PRODUIT 54",
-    price: "PRIX 54",
-    description: "DESCRIPTION DU PRODUIT 54",
-    photos: ["images/produit54-1.jpg", "images/produit54-2.jpg", "images/produit54-3.jpg", "images/produit54-4.jpg"],
-    weight: true
-  },
-  {
-    id: 55,
-    name: "NOM DU PRODUIT 55",
-    price: "PRIX 55",
-    description: "DESCRIPTION DU PRODUIT 55",
-    photos: ["images/produit55-1.jpg", "images/produit55-2.jpg", "images/produit55-3.jpg", "images/produit55-4.jpg"],
-    weight: true
-  }
+  { id: 1, name: "Produit 1", price: "Prix à définir", description: "Description du produit 1", photos: [], weight: true },
+  { id: 2, name: "Produit 2", price: "Prix à définir", description: "Description du produit 2", photos: [], weight: true },
+  { id: 3, name: "Produit 3", price: "Prix à définir", description: "Description du produit 3", photos: [], weight: true },
+  { id: 4, name: "Produit 4", price: "Prix à définir", description: "Description du produit 4", photos: [], weight: true },
+  { id: 5, name: "Produit 5", price: "Prix à définir", description: "Description du produit 5", photos: [], weight: true },
+  { id: 6, name: "Produit 6", price: "Prix à définir", description: "Description du produit 6", photos: [], weight: true },
+  { id: 7, name: "Produit 7", price: "Prix à définir", description: "Description du produit 7", photos: [], weight: true },
+  { id: 8, name: "Produit 8", price: "Prix à définir", description: "Description du produit 8", photos: [], weight: true },
+  { id: 9, name: "Produit 9", price: "Prix à définir", description: "Description du produit 9", photos: [], weight: true },
+  { id: 10, name: "Produit 10", price: "Prix à définir", description: "Description du produit 10", photos: [], weight: true },
+  { id: 11, name: "Produit 11", price: "Prix à définir", description: "Description du produit 11", photos: [], weight: true },
+  { id: 12, name: "Produit 12", price: "Prix à définir", description: "Description du produit 12", photos: [], weight: true },
+  { id: 13, name: "Produit 13", price: "Prix à définir", description: "Description du produit 13", photos: [], weight: true },
+  { id: 14, name: "Produit 14", price: "Prix à définir", description: "Description du produit 14", photos: [], weight: true },
+  { id: 15, name: "Produit 15", price: "Prix à définir", description: "Description du produit 15", photos: [], weight: true },
+  { id: 16, name: "Produit 16", price: "Prix à définir", description: "Description du produit 16", photos: [], weight: true },
+  { id: 17, name: "Produit 17", price: "Prix à définir", description: "Description du produit 17", photos: [], weight: true },
+  { id: 18, name: "Produit 18", price: "Prix à définir", description: "Description du produit 18", photos: [], weight: true },
+  { id: 19, name: "Produit 19", price: "Prix à définir", description: "Description du produit 19", photos: [], weight: true },
+  { id: 20, name: "Produit 20", price: "Prix à définir", description: "Description du produit 20", photos: [], weight: true },
+  { id: 21, name: "Produit 21", price: "Prix à définir", description: "Description du produit 21", photos: [], weight: true },
+  { id: 22, name: "Produit 22", price: "Prix à définir", description: "Description du produit 22", photos: [], weight: true },
+  { id: 23, name: "Produit 23", price: "Prix à définir", description: "Description du produit 23", photos: [], weight: true },
+  { id: 24, name: "Produit 24", price: "Prix à définir", description: "Description du produit 24", photos: [], weight: true },
+  { id: 25, name: "Produit 25", price: "Prix à définir", description: "Description du produit 25", photos: [], weight: true },
+  { id: 26, name: "Produit 26", price: "Prix à définir", description: "Description du produit 26", photos: [], weight: true },
+  { id: 27, name: "Produit 27", price: "Prix à définir", description: "Description du produit 27", photos: [], weight: true },
+  { id: 28, name: "Produit 28", price: "Prix à définir", description: "Description du produit 28", photos: [], weight: true },
+  { id: 29, name: "Produit 29", price: "Prix à définir", description: "Description du produit 29", photos: [], weight: true },
+  { id: 30, name: "Produit 30", price: "Prix à définir", description: "Description du produit 30", photos: [], weight: true },
+  { id: 31, name: "Produit 31", price: "Prix à définir", description: "Description du produit 31", photos: [], weight: true },
+  { id: 32, name: "Produit 32", price: "Prix à définir", description: "Description du produit 32", photos: [], weight: true },
+  { id: 33, name: "Produit 33", price: "Prix à définir", description: "Description du produit 33", photos: [], weight: true },
+  { id: 34, name: "Produit 34", price: "Prix à définir", description: "Description du produit 34", photos: [], weight: true },
+  { id: 35, name: "Produit 35", price: "Prix à définir", description: "Description du produit 35", photos: [], weight: true },
+  { id: 36, name: "Produit 36", price: "Prix à définir", description: "Description du produit 36", photos: [], weight: true },
+  { id: 37, name: "Produit 37", price: "Prix à définir", description: "Description du produit 37", photos: [], weight: true },
+  { id: 38, name: "Produit 38", price: "Prix à définir", description: "Description du produit 38", photos: [], weight: true },
+  { id: 39, name: "Produit 39", price: "Prix à définir", description: "Description du produit 39", photos: [], weight: true },
+  { id: 40, name: "Produit 40", price: "Prix à définir", description: "Description du produit 40", photos: [], weight: true },
+  { id: 41, name: "Produit 41", price: "Prix à définir", description: "Description du produit 41", photos: [], weight: true },
+  { id: 42, name: "Produit 42", price: "Prix à définir", description: "Description du produit 42", photos: [], weight: true },
+  { id: 43, name: "Produit 43", price: "Prix à définir", description: "Description du produit 43", photos: [], weight: true },
+  { id: 44, name: "Produit 44", price: "Prix à définir", description: "Description du produit 44", photos: [], weight: true },
+  { id: 45, name: "Produit 45", price: "Prix à définir", description: "Description du produit 45", photos: [], weight: true },
+  { id: 46, name: "Produit 46", price: "Prix à définir", description: "Description du produit 46", photos: [], weight: true },
+  { id: 47, name: "Produit 47", price: "Prix à définir", description: "Description du produit 47", photos: [], weight: true },
+  { id: 48, name: "Produit 48", price: "Prix à définir", description: "Description du produit 48", photos: [], weight: true },
+  { id: 49, name: "Produit 49", price: "Prix à définir", description: "Description du produit 49", photos: [], weight: true },
+  { id: 50, name: "Produit 50", price: "Prix à définir", description: "Description du produit 50", photos: [], weight: true },
+  { id: 51, name: "Produit 51", price: "Prix à définir", description: "Description du produit 51", photos: [], weight: true },
+  { id: 52, name: "Produit 52", price: "Prix à définir", description: "Description du produit 52", photos: [], weight: true },
+  { id: 53, name: "Produit 53", price: "Prix à définir", description: "Description du produit 53", photos: [], weight: true },
+  { id: 54, name: "Produit 54", price: "Prix à définir", description: "Description du produit 54", photos: [], weight: true },
+  { id: 55, name: "Produit 55", price: "Prix à définir", description: "Description du produit 55", photos: [], weight: true }
 ];
 
 const weights = [
