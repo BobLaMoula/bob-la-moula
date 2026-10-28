@@ -11,25 +11,26 @@
 :root {
   --gold: #f5c542;
   --bg: #090909;
-  --card: #171717;
+  --panel: #171717;
+  --line: #333;
 }
 * { box-sizing: border-box; }
 body {
   margin: 0;
   background: var(--bg);
-  color: white;
+  color: #fff;
   font-family: Arial, sans-serif;
 }
 header {
   text-align: center;
   padding: 24px 12px;
   background: #111;
-  border-bottom: 1px solid #383838;
+  border-bottom: 1px solid var(--line);
 }
 .logo {
   margin: 0;
   color: var(--gold);
-  font-size: clamp(27px, 7vw, 42px);
+  font-size: clamp(28px, 7vw, 44px);
   font-weight: 900;
   letter-spacing: 2px;
 }
@@ -38,34 +39,36 @@ nav {
   flex-wrap: wrap;
   justify-content: center;
   gap: 7px;
-  padding: 12px 6px;
+  padding: 12px;
   background: #111;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 5;
 }
 button, a { cursor: pointer; }
-nav button, .back, .outline {
+nav button, .secondary {
   background: #171717;
   color: var(--gold);
   border: 1px solid var(--gold);
-  border-radius: 7px;
+  border-radius: 8px;
   padding: 11px 13px;
   font-weight: bold;
-  text-decoration: none;
 }
-nav button.active, nav button:hover, .back:hover {
+nav button.active {
   background: var(--gold);
   color: #000;
 }
 main {
   max-width: 1200px;
-  padding: 16px;
   margin: auto;
+  padding: 16px;
 }
-h2 { color: var(--gold); text-align: center; }
 .section { display: none; }
 .section.active { display: block; }
+h2 {
+  color: var(--gold);
+  text-align: center;
+}
 #search {
   width: 100%;
   padding: 14px;
@@ -73,7 +76,7 @@ h2 { color: var(--gold); text-align: center; }
   border: 1px solid #444;
   border-radius: 8px;
   background: #181818;
-  color: white;
+  color: #fff;
   font-size: 16px;
 }
 .products {
@@ -84,55 +87,123 @@ h2 { color: var(--gold); text-align: center; }
 .product-card {
   padding: 0;
   overflow: hidden;
-  border: 1px solid #333;
+  border: 1px solid var(--line);
   border-radius: 10px;
-  background: var(--card);
-  color: white;
+  background: var(--panel);
+  color: #fff;
   text-align: left;
 }
 .product-card:hover { border-color: var(--gold); }
-.product-card img {
+.card-photo {
   width: 100%;
-  height: 155px;
+  height: 160px;
   object-fit: contain;
   background: #080808;
   display: block;
 }
 .card-info { padding: 12px; }
-.card-info h3 { margin: 0 0 8px; font-size: 16px; }
+.card-info h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
 .price {
   color: var(--gold);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
 }
-.detail { max-width: 720px; margin: auto; }
-.detail-photo {
-  width: 100%;
-  height: min(65vw, 400px);
-  object-fit: contain;
-  background: #111;
-  border-radius: 10px;
+.detail {
+  max-width: 760px;
+  margin: auto;
 }
-.thumbnails {
+.media-frame {
+  background: #050505;
+  border: 1px solid #292929;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.main-media {
+  display: block;
+  width: 100%;
+  height: min(70vw, 480px);
+  object-fit: contain;
+  background: #050505;
+}
+.thumbs {
   display: flex;
   gap: 8px;
   overflow-x: auto;
   padding: 10px 0;
 }
-.thumbnails img {
-  width: 72px;
-  height: 72px;
-  object-fit: cover;
+.thumb {
+  flex: 0 0 74px;
+  width: 74px;
+  height: 74px;
+  padding: 0;
   border: 1px solid #555;
-  border-radius: 6px;
+  border-radius: 7px;
+  overflow: hidden;
+  background: #111;
 }
-.description { color: #ccc; line-height: 1.6; white-space: pre-wrap; }
-label { display: block; margin: 15px 0 7px; }
+.thumb.active {
+  border: 2px solid var(--gold);
+}
+.thumb img, .thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.panel {
+  background: var(--panel);
+  border: 1px solid #302b20;
+  border-radius: 13px;
+  padding: 18px;
+  margin: 14px 0;
+}
+.panel-title {
+  color: #b9ad8d;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+.description {
+  color: #ccc;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+.variants {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.variant {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  text-align: left;
+  padding: 14px;
+  border: 1px solid #39332a;
+  border-radius: 11px;
+  background: #101010;
+  color: #fff;
+}
+.variant.selected {
+  border: 2px solid var(--gold);
+  background: #292316;
+}
+.variant-price {
+  color: var(--gold);
+  font-weight: 900;
+}
+label {
+  display: block;
+  margin: 14px 0 7px;
+}
 select {
   width: 100%;
   padding: 12px;
   background: #101010;
-  color: white;
+  color: #fff;
   border: 1px solid #444;
   border-radius: 7px;
   font-size: 16px;
@@ -142,16 +213,15 @@ select {
   margin-top: 14px;
   padding: 14px;
   border: 0;
-  border-radius: 7px;
+  border-radius: 8px;
   background: var(--gold);
   color: #000;
   font-weight: bold;
   font-size: 16px;
 }
-.empty { text-align: center; color: #bbb; padding: 25px 5px; }
 .cart-item {
-  background: var(--card);
-  border: 1px solid #333;
+  background: var(--panel);
+  border: 1px solid var(--line);
   border-radius: 8px;
   padding: 14px;
   margin: 10px 0;
@@ -175,7 +245,6 @@ select {
   object-fit: cover;
   border: 1px solid #333;
   border-radius: 7px;
-  background: #171717;
 }
 .whatsapp {
   display: block;
@@ -198,6 +267,8 @@ footer {
 @media (max-width: 420px) {
   nav button { padding: 10px 9px; font-size: 12px; }
   .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .variants { gap: 8px; }
+  .variant { padding: 10px; font-size: 14px; }
 }
 </style>
 </head>
@@ -219,7 +290,7 @@ footer {
 
 <main>
   <section id="catalogue" class="section active">
-    <h2>MENU</h2>
+    <h2>NOTRE CATALOGUE</h2>
     <input id="search" type="search"
       placeholder="Rechercher un produit..."
       oninput="renderProducts()">
@@ -227,7 +298,7 @@ footer {
   </section>
 
   <section id="detail" class="section">
-    <button class="back" onclick="backToCatalogue()">← Retour au menu</button>
+    <button class="secondary" onclick="backToCatalogue()">← Retour au menu</button>
     <div id="productDetail" class="detail"></div>
   </section>
 
@@ -239,16 +310,14 @@ footer {
 
   <section id="avis" class="section">
     <h2>RETOURS CLIENTS</h2>
-    <p class="description">
-      Retrouvez ici les photos des retours clients.
-    </p>
+    <p class="description">Retrouvez ici les photos des retours clients.</p>
     <div id="reviewGallery" class="gallery"></div>
   </section>
 
   <section id="informations" class="section">
     <h2>NOUS CONTACTER</h2>
     <p class="description">
-      Pour toute question concernant la boutique, contacte-nous directement sur WhatsApp en cliquant sur le bouton ci-dessous.
+      Pour toute question concernant la boutique, contacte-nous directement sur WhatsApp.
     </p>
     <a class="whatsapp"
        href="https://wa.me/33653430135"
@@ -262,126 +331,115 @@ footer {
 <footer>BOB LA MOULA 24/24</footer>
 
 <script>
-/* CATALOGUE : 55 fiches à personnaliser */
-const products = Array.from({ length: 55 }, (_, i) => ({
-  id: i + 1,
-  name: "Produit " + (i + 1),
-  price: "Prix à définir",
-  description: "Description à compléter.",
-  photos: [],
-  weight: true
-}));
+// Chaque produit peut avoir jusqu'à 4 photos, des vidéos
+// et des options avec un prix propre.
+// Exemple d'option : {label:"25 g", price:"220,00 €"}
+// Les fichiers photo/vidéo doivent exister sur GitHub.
 
-/*
-  PERSONNALISE LES FICHES DANS LE TABLEAU products.
- /* CATALOGUE : 55 fiches produits */
 const products = [
-  { id: 1, name: "Produit 1", price: "Prix à définir", description: "Description du produit 1", photos: [], weight: true },
-  { id: 2, name: "Produit 2", price: "Prix à définir", description: "Description du produit 2", photos: [], weight: true },
-  { id: 3, name: "Produit 3", price: "Prix à définir", description: "Description du produit 3", photos: [], weight: true },
-  { id: 4, name: "Produit 4", price: "Prix à définir", description: "Description du produit 4", photos: [], weight: true },
-  { id: 5, name: "Produit 5", price: "Prix à définir", description: "Description du produit 5", photos: [], weight: true },
-  { id: 6, name: "Produit 6", price: "Prix à définir", description: "Description du produit 6", photos: [], weight: true },
-  { id: 7, name: "Produit 7", price: "Prix à définir", description: "Description du produit 7", photos: [], weight: true },
-  { id: 8, name: "Produit 8", price: "Prix à définir", description: "Description du produit 8", photos: [], weight: true },
-  { id: 9, name: "Produit 9", price: "Prix à définir", description: "Description du produit 9", photos: [], weight: true },
-  { id: 10, name: "Produit 10", price: "Prix à définir", description: "Description du produit 10", photos: [], weight: true },
-  { id: 11, name: "Produit 11", price: "Prix à définir", description: "Description du produit 11", photos: [], weight: true },
-  { id: 12, name: "Produit 12", price: "Prix à définir", description: "Description du produit 12", photos: [], weight: true },
-  { id: 13, name: "Produit 13", price: "Prix à définir", description: "Description du produit 13", photos: [], weight: true },
-  { id: 14, name: "Produit 14", price: "Prix à définir", description: "Description du produit 14", photos: [], weight: true },
-  { id: 15, name: "Produit 15", price: "Prix à définir", description: "Description du produit 15", photos: [], weight: true },
-  { id: 16, name: "Produit 16", price: "Prix à définir", description: "Description du produit 16", photos: [], weight: true },
-  { id: 17, name: "Produit 17", price: "Prix à définir", description: "Description du produit 17", photos: [], weight: true },
-  { id: 18, name: "Produit 18", price: "Prix à définir", description: "Description du produit 18", photos: [], weight: true },
-  { id: 19, name: "Produit 19", price: "Prix à définir", description: "Description du produit 19", photos: [], weight: true },
-  { id: 20, name: "Produit 20", price: "Prix à définir", description: "Description du produit 20", photos: [], weight: true },
-  { id: 21, name: "Produit 21", price: "Prix à définir", description: "Description du produit 21", photos: [], weight: true },
-  { id: 22, name: "Produit 22", price: "Prix à définir", description: "Description du produit 22", photos: [], weight: true },
-  { id: 23, name: "Produit 23", price: "Prix à définir", description: "Description du produit 23", photos: [], weight: true },
-  { id: 24, name: "Produit 24", price: "Prix à définir", description: "Description du produit 24", photos: [], weight: true },
-  { id: 25, name: "Produit 25", price: "Prix à définir", description: "Description du produit 25", photos: [], weight: true },
-  { id: 26, name: "Produit 26", price: "Prix à définir", description: "Description du produit 26", photos: [], weight: true },
-  { id: 27, name: "Produit 27", price: "Prix à définir", description: "Description du produit 27", photos: [], weight: true },
-  { id: 28, name: "Produit 28", price: "Prix à définir", description: "Description du produit 28", photos: [], weight: true },
-  { id: 29, name: "Produit 29", price: "Prix à définir", description: "Description du produit 29", photos: [], weight: true },
-  { id: 30, name: "Produit 30", price: "Prix à définir", description: "Description du produit 30", photos: [], weight: true },
-  { id: 31, name: "Produit 31", price: "Prix à définir", description: "Description du produit 31", photos: [], weight: true },
-  { id: 32, name: "Produit 32", price: "Prix à définir", description: "Description du produit 32", photos: [], weight: true },
-  { id: 33, name: "Produit 33", price: "Prix à définir", description: "Description du produit 33", photos: [], weight: true },
-  { id: 34, name: "Produit 34", price: "Prix à définir", description: "Description du produit 34", photos: [], weight: true },
-  { id: 35, name: "Produit 35", price: "Prix à définir", description: "Description du produit 35", photos: [], weight: true },
-  { id: 36, name: "Produit 36", price: "Prix à définir", description: "Description du produit 36", photos: [], weight: true },
-  { id: 37, name: "Produit 37", price: "Prix à définir", description: "Description du produit 37", photos: [], weight: true },
-  { id: 38, name: "Produit 38", price: "Prix à définir", description: "Description du produit 38", photos: [], weight: true },
-  { id: 39, name: "Produit 39", price: "Prix à définir", description: "Description du produit 39", photos: [], weight: true },
-  { id: 40, name: "Produit 40", price: "Prix à définir", description: "Description du produit 40", photos: [], weight: true },
-  { id: 41, name: "Produit 41", price: "Prix à définir", description: "Description du produit 41", photos: [], weight: true },
-  { id: 42, name: "Produit 42", price: "Prix à définir", description: "Description du produit 42", photos: [], weight: true },
-  { id: 43, name: "Produit 43", price: "Prix à définir", description: "Description du produit 43", photos: [], weight: true },
-  { id: 44, name: "Produit 44", price: "Prix à définir", description: "Description du produit 44", photos: [], weight: true },
-  { id: 45, name: "Produit 45", price: "Prix à définir", description: "Description du produit 45", photos: [], weight: true },
-  { id: 46, name: "Produit 46", price: "Prix à définir", description: "Description du produit 46", photos: [], weight: true },
-  { id: 47, name: "Produit 47", price: "Prix à définir", description: "Description du produit 47", photos: [], weight: true },
-  { id: 48, name: "Produit 48", price: "Prix à définir", description: "Description du produit 48", photos: [], weight: true },
-  { id: 49, name: "Produit 49", price: "Prix à définir", description: "Description du produit 49", photos: [], weight: true },
-  { id: 50, name: "Produit 50", price: "Prix à définir", description: "Description du produit 50", photos: [], weight: true },
-  { id: 51, name: "Produit 51", price: "Prix à définir", description: "Description du produit 51", photos: [], weight: true },
-  { id: 52, name: "Produit 52", price: "Prix à définir", description: "Description du produit 52", photos: [], weight: true },
-  { id: 53, name: "Produit 53", price: "Prix à définir", description: "Description du produit 53", photos: [], weight: true },
-  { id: 54, name: "Produit 54", price: "Prix à définir", description: "Description du produit 54", photos: [], weight: true },
-  { id: 55, name: "Produit 55", price: "Prix à définir", description: "Description du produit 55", photos: [], weight: true }
+  {id:1, name:"Produit 1", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:2, name:"Produit 2", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:3, name:"Produit 3", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:4, name:"Produit 4", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:5, name:"Produit 5", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:6, name:"Produit 6", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:7, name:"Produit 7", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:8, name:"Produit 8", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:9, name:"Produit 9", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:10, name:"Produit 10", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:11, name:"Produit 11", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:12, name:"Produit 12", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:13, name:"Produit 13", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:14, name:"Produit 14", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:15, name:"Produit 15", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:16, name:"Produit 16", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:17, name:"Produit 17", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:18, name:"Produit 18", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:19, name:"Produit 19", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:20, name:"Produit 20", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:21, name:"Produit 21", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:22, name:"Produit 22", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:23, name:"Produit 23", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:24, name:"Produit 24", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:25, name:"Produit 25", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:26, name:"Produit 26", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:27, name:"Produit 27", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:28, name:"Produit 28", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:29, name:"Produit 29", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:30, name:"Produit 30", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:31, name:"Produit 31", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:32, name:"Produit 32", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:33, name:"Produit 33", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:34, name:"Produit 34", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:35, name:"Produit 35", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:36, name:"Produit 36", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:37, name:"Produit 37", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:38, name:"Produit 38", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:39, name:"Produit 39", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:40, name:"Produit 40", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:41, name:"Produit 41", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:42, name:"Produit 42", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:43, name:"Produit 43", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:44, name:"Produit 44", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:45, name:"Produit 45", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:46, name:"Produit 46", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:47, name:"Produit 47", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:48, name:"Produit 48", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:49, name:"Produit 49", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:50, name:"Produit 50", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:51, name:"Produit 51", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:52, name:"Produit 52", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:53, name:"Produit 53", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:54, name:"Produit 54", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]},
+  {id:55, name:"Produit 55", price:"Prix à définir", description:"Description à compléter.", photos:[], videos:[], variants:[]}
 ];
 
-const weights = [
-  "300 g", "500 g", "100 g", "800 g", "950 g",
-  "1 kg", "2 kg", "3 kg", "4 kg"
-];
-
-/* Galerie de 30 photos : ajoute les fichiers dans images/avis/ */
 const reviewPhotos = Array.from(
-  { length: 30 },
-  (_, i) => "images/avis/avis" + (i + 1) + ".jpg"
+  {length:30},
+  (_,i) => "images/avis/avis" + (i+1) + ".jpg"
 );
 
-/* Panier temporaire dans la session de navigation */
 let cart = [];
 let currentProduct = null;
+let selectedVariant = 0;
+let currentMedia = [];
 
 function showSection(id, button) {
-  document.querySelectorAll(".section").forEach(section =>
-    section.classList.remove("active")
+  document.querySelectorAll(".section").forEach(s =>
+    s.classList.remove("active")
   );
   document.getElementById(id).classList.add("active");
 
-  document.querySelectorAll("nav button").forEach(btn =>
-    btn.classList.remove("active")
+  document.querySelectorAll("nav button").forEach(b =>
+    b.classList.remove("active")
   );
   if (button) button.classList.add("active");
 
   if (id === "panier") renderCart();
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({top:0, behavior:"smooth"});
 }
 
 function backToCatalogue() {
   showSection("catalogue", document.querySelector("nav button"));
 }
 
-function makeImage(src, className, alt) {
+function makeImg(src, alt) {
   const img = document.createElement("img");
-  img.className = className;
   img.alt = alt;
-  if (src) img.src = src;
-  img.onerror = () => {
-    img.style.display = "none";
-  };
+  img.src = src;
+  img.onerror = () => img.remove();
   return img;
+}
+
+function displayPrice(product) {
+  return product.variants && product.variants.length
+    ? product.variants[0].price
+    : product.price;
 }
 
 function renderProducts() {
   const container = document.getElementById("products");
-  const term = document.getElementById("search").value
-    .trim().toLowerCase();
+  const term = document.getElementById("search").value.trim().toLowerCase();
   container.replaceChildren();
 
   const matches = products.filter(p =>
@@ -399,70 +457,160 @@ function renderProducts() {
     button.className = "product-card";
     button.onclick = () => openProduct(product.id);
 
-    const photos = (product.photos || []).slice(0, 4);
-    button.appendChild(makeImage(photos[0] || "", "", product.name));
+    const photos = (product.photos || []).slice(0,4);
+    const image = document.createElement("img");
+    image.className = "card-photo";
+    image.alt = product.name;
+
+    if (photos.length) {
+      image.src = photos[0];
+      image.onerror = () => {
+        image.style.display = "none";
+      };
+    } else {
+      image.style.display = "none";
+    }
+
+    button.appendChild(image);
 
     const info = document.createElement("div");
     info.className = "card-info";
 
     const name = document.createElement("h3");
     name.textContent = product.name;
-    info.appendChild(name);
 
     const price = document.createElement("div");
     price.className = "price";
-    price.textContent = product.price;
-    info.appendChild(price);
+    price.textContent = displayPrice(product);
 
+    info.append(name, price);
     button.appendChild(info);
     container.appendChild(button);
   });
 }
 
 function openProduct(id) {
-  const product = products.find(p => p.id === id);
-  if (!product) return;
-  currentProduct = product;
+  currentProduct = products.find(p => p.id === id);
+  if (!currentProduct) return;
+
+  selectedVariant = 0;
 
   const detail = document.getElementById("productDetail");
   detail.replaceChildren();
+  currentMedia = [];
 
-  const photos = (product.photos || []).slice(0, 4);
-  const mainPhoto = makeImage(
-    photos[0] || "", "detail-photo", product.name
-  );
-  detail.appendChild(mainPhoto);
+  (currentProduct.photos || []).slice(0,4).forEach(src => {
+    currentMedia.push({type:"image", src});
+  });
 
-  if (photos.length > 1) {
-    const thumbs = document.createElement("div");
-    thumbs.className = "thumbnails";
+  (currentProduct.videos || []).forEach(src => {
+    currentMedia.push({type:"video", src});
+  });
 
-    photos.forEach(photo => {
-      const thumb = makeImage(photo, "", "Photo supplémentaire");
-      thumb.style.display = "block";
-      thumb.onclick = () => {
-        mainPhoto.src = photo;
-        mainPhoto.style.display = "block";
-      };
-      thumbs.appendChild(thumb);
-    });
-    detail.appendChild(thumbs);
+  const frame = document.createElement("div");
+  frame.className = "media-frame";
+
+  if (currentMedia.length) {
+    const holder = document.createElement("div");
+    holder.id = "mainMediaHolder";
+    frame.appendChild(holder);
+    detail.appendChild(frame);
+    renderMedia(0);
+
+    if (currentMedia.length > 1) {
+      const thumbs = document.createElement("div");
+      thumbs.className = "thumbs";
+
+      currentMedia.forEach((media, index) => {
+        const button = document.createElement("button");
+        button.className = "thumb" + (index === 0 ? " active" : "");
+
+        button.onclick = () => {
+          renderMedia(index);
+          thumbs.querySelectorAll(".thumb").forEach((thumb, i) => {
+            thumb.classList.toggle("active", i === index);
+          });
+        };
+
+        if (media.type === "image") {
+          button.appendChild(makeImg(media.src, "Miniature"));
+        } else {
+          const video = document.createElement("video");
+          video.src = media.src;
+          video.muted = true;
+          video.preload = "metadata";
+          button.appendChild(video);
+        }
+
+        thumbs.appendChild(button);
+      });
+
+      detail.appendChild(thumbs);
+    }
+  } else {
+    const placeholder = document.createElement("div");
+    placeholder.className = "main-media";
+    placeholder.style.cssText =
+      "display:grid;place-items:center;color:#888";
+    placeholder.textContent = "Photos et vidéos à ajouter";
+    frame.appendChild(placeholder);
+    detail.appendChild(frame);
   }
-
-  const title = document.createElement("h2");
-  title.textContent = product.name;
-  title.style.textAlign = "left";
-  detail.appendChild(title);
 
   const price = document.createElement("div");
   price.className = "price";
-  price.textContent = product.price;
+  price.style.cssText =
+    "font-size:clamp(30px,7vw,42px);margin:14px 0 22px";
+  price.id = "detailPrice";
+  price.textContent = displayPrice(currentProduct);
   detail.appendChild(price);
+
+  const panel = document.createElement("div");
+  panel.className = "panel";
+
+  const panelTitle = document.createElement("div");
+  panelTitle.className = "panel-title";
+  panelTitle.textContent = "DÉTAILS DU PRODUIT";
 
   const description = document.createElement("p");
   description.className = "description";
-  description.textContent = product.description;
-  detail.appendChild(description);
+  description.textContent = currentProduct.description;
+
+  panel.append(panelTitle, description);
+  detail.appendChild(panel);
+
+  if (currentProduct.variants && currentProduct.variants.length) {
+    const optionsPanel = document.createElement("div");
+    optionsPanel.className = "panel";
+
+    const title = document.createElement("div");
+    title.className = "panel-title";
+    title.textContent = "CHOISIR UNE OPTION";
+    optionsPanel.appendChild(title);
+
+    const grid = document.createElement("div");
+    grid.className = "variants";
+    grid.id = "variantGrid";
+
+    currentProduct.variants.forEach((variant, index) => {
+      const button = document.createElement("button");
+      button.className = "variant" + (index === 0 ? " selected" : "");
+      button.onclick = () => selectVariant(index);
+
+      const label = document.createElement("span");
+      label.textContent = variant.label;
+
+      const price = document.createElement("span");
+      price.className = "variant-price";
+      price.textContent = variant.price;
+
+      button.append(label, price);
+      grid.appendChild(button);
+    });
+
+    optionsPanel.appendChild(grid);
+    detail.appendChild(optionsPanel);
+  }
 
   const quantityLabel = document.createElement("label");
   quantityLabel.textContent = "Quantité";
@@ -470,30 +618,15 @@ function openProduct(id) {
 
   const quantity = document.createElement("select");
   quantity.id = "selectedQuantity";
+
   for (let n = 1; n <= 99; n++) {
     const option = document.createElement("option");
     option.value = n;
     option.textContent = n;
     quantity.appendChild(option);
   }
+
   detail.appendChild(quantity);
-
-  if (product.weight) {
-    const label = document.createElement("label");
-    label.textContent = "Poids";
-    detail.appendChild(label);
-
-    const select = document.createElement("select");
-    select.id = "selectedWeight";
-
-    weights.forEach(weight => {
-      const option = document.createElement("option");
-      option.value = weight;
-      option.textContent = weight;
-      select.appendChild(option);
-    });
-    detail.appendChild(select);
-  }
 
   const add = document.createElement("button");
   add.className = "gold-button";
@@ -504,31 +637,74 @@ function openProduct(id) {
   showSection("detail", null);
 }
 
+function renderMedia(index) {
+  const holder = document.getElementById("mainMediaHolder");
+  if (!holder) return;
+
+  holder.replaceChildren();
+  const media = currentMedia[index];
+  let element;
+
+  if (media.type === "video") {
+    element = document.createElement("video");
+    element.controls = true;
+    element.playsInline = true;
+    element.preload = "metadata";
+    element.src = media.src;
+  } else {
+    element = document.createElement("img");
+    element.src = media.src;
+    element.alt = currentProduct.name;
+    element.onerror = () => {
+      element.style.display = "none";
+    };
+  }
+
+  element.className = "main-media";
+  holder.appendChild(element);
+}
+
+function selectVariant(index) {
+  selectedVariant = index;
+
+  document.querySelectorAll("#variantGrid .variant").forEach((button, i) => {
+    button.classList.toggle("selected", i === index);
+  });
+
+  document.getElementById("detailPrice").textContent =
+    currentProduct.variants[index].price;
+}
+
 function addToCart() {
   if (!currentProduct) return;
 
   const quantity = Number(
     document.getElementById("selectedQuantity").value
   );
-  const weightElement = document.getElementById("selectedWeight");
-  const weight = weightElement ? weightElement.value : "Non applicable";
 
-  const existing = cart.find(item =>
-    item.id === currentProduct.id && item.weight === weight
-  );
+  const variant =
+    currentProduct.variants && currentProduct.variants.length
+      ? currentProduct.variants[selectedVariant]
+      : null;
+
+  const label = variant ? variant.label : "Standard";
+  const price = variant ? variant.price : currentProduct.price;
+  const key = currentProduct.id + "|" + label + "|" + price;
+
+  const existing = cart.find(item => item.key === key);
 
   if (existing) {
     if (existing.quantity + quantity > 99) {
-      alert("La quantité maximale par ligne est de 99.");
+      alert("Maximum 99 par ligne.");
       return;
     }
     existing.quantity += quantity;
   } else {
     cart.push({
-      id: currentProduct.id,
+      key,
       name: currentProduct.name,
-      price: currentProduct.price,
-      weight,
+      variant: label,
+      price,
       quantity
     });
   }
@@ -538,8 +714,8 @@ function addToCart() {
 }
 
 function updateCartCount() {
-  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-  document.getElementById("cartCount").textContent = count;
+  document.getElementById("cartCount").textContent =
+    cart.reduce((sum, item) => sum + item.quantity, 0);
 }
 
 function renderCart() {
@@ -559,16 +735,13 @@ function renderCart() {
 
     const name = document.createElement("strong");
     name.textContent = item.name;
-    card.appendChild(name);
 
     const price = document.createElement("p");
-    price.textContent = "Prix unitaire : " + item.price;
-    card.appendChild(price);
+    price.textContent =
+      "Option : " + item.variant + " — Prix unitaire : " + item.price;
 
-    const details = document.createElement("p");
-    details.textContent =
-      "Quantité : " + item.quantity + " — Poids : " + item.weight;
-    card.appendChild(details);
+    const quantity = document.createElement("p");
+    quantity.textContent = "Quantité : " + item.quantity;
 
     const remove = document.createElement("button");
     remove.className = "remove";
@@ -578,8 +751,8 @@ function renderCart() {
       updateCartCount();
       renderCart();
     };
-    card.appendChild(remove);
 
+    card.append(name, price, quantity, remove);
     container.appendChild(card);
   });
 
@@ -593,25 +766,25 @@ function renderCart() {
       renderCart();
     }
   };
+
   summary.appendChild(clear);
 }
 
-/* Afficher les photos disponibles parmi les 30 emplacements */
-function renderReviewGallery() {
+function renderReviews() {
   const gallery = document.getElementById("reviewGallery");
 
   reviewPhotos.forEach(src => {
-    const img = document.createElement("img");
-    img.src = src;
-    img.alt = "Retour client";
-    img.loading = "lazy";
-    img.onerror = () => img.remove();
-    gallery.appendChild(img);
+    const image = document.createElement("img");
+    image.src = src;
+    image.alt = "Retour client";
+    image.loading = "lazy";
+    image.onerror = () => image.remove();
+    gallery.appendChild(image);
   });
 }
 
 renderProducts();
-renderReviewGallery();
+renderReviews();
 </script>
 </body>
 </html>
